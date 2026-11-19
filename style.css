@@ -1,0 +1,231 @@
+/* SETUP */
+:root {
+    --color-bg: ghostwhite;
+    --color-jumbotron-bg: ghostwhite;
+    --color-accent: lightseagreen;
+    --color-accent-hover: #66c3af;
+    --color-accent-light: rgba(224, 122, 95, 0.08);
+    --color-text: #222;
+    --color-text-light: #666;
+    --color-text-muted: #aaa;
+    --color-text-hero: #fff;
+    --color-text-hero-sub: rgba(255, 255, 255, 0.75);
+    --color-border: rgba(0, 0, 0, 0.06);
+    --color-divider: #e8e4df;
+    --color-line: lightgrey;
+
+    --font-body: 'Zalando Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: 'Zalando Sans Expanded', Georgia, serif;
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.07);
+    --transition: 0.25s ease;
+}
+
+a { 
+    text-decoration: none; 
+    color: inherit; 
+}
+
+/* LAYOUT */
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+footer {
+    font-family: var(--font-body);
+    text-align: center;
+    line-height: 100%;
+    margin-top: 1rem;
+}
+
+.container {
+    padding: 3% 15% 3% 15%;
+}
+
+/* JUMBOTRON */
+.jumbotron {
+    background: var(--color-jumbotron-bg);
+    padding: 3%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    position: relative;
+    z-index: 1;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+}
+
+.jumbotron-name {
+    font-family: var(--font-heading);
+    font-weight: 800;
+}
+
+.jumbotron-photo {
+    width: 11rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid grey;
+    flex-shrink: 0;
+}
+
+.jumbotron-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.jumbotron-link {
+    color: currentcolor;
+    text-decoration: underline teal;
+    text-underline-offset: 2px;
+    transition: 0.3s;
+}
+
+.jumbotron-link:hover {
+    color: ghostwhite;
+    background-color: teal;
+    text-decoration: none;
+}
+
+/* NAVBAR */
+.pill-button {
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+/* GRID */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 1rem;
+}
+
+/* CARDS */
+.project-item {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.thumbnail-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--color-bg);
+  position: relative;
+}
+
+.thumbnail-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-item:hover .thumbnail-wrapper img {
+  transform: scale(1.03);
+}
+
+.project-info {
+  padding: 12px 16px 14px;
+}
+
+.project-desc {
+    font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.article-date {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.headline {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: currentcolor;
+}
+
+.tag {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.7rem;
+    background-color: teal;
+    color: ghostwhite;
+    border: solid 1px ghostwhite;
+}
+
+/* ABOUT */
+.about-box {
+    background: var(--color-jumbotron-bg);
+    padding: 3%;
+    position: relative;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 700px) {
+  .jumbotron {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .jumbotron-links { justify-content: center; }
+
+  .tab-btn {
+    font-size: 0.72rem;
+    padding: 12px 14px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .article-row {
+    flex-wrap: wrap;
+  }
+  .article-date {
+    width: 100%;
+    margin-top: 2px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .tab-nav .container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
